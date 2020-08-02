@@ -1,4 +1,4 @@
-class Weather
+class Forecast
   attr_reader :sunrise,
               :temp,
               :sunset,
@@ -34,6 +34,8 @@ class Weather
     @daily = daily_weather(data)
     @id = nil
   end
+
+    
 
     def hourly_weather(data)
 
