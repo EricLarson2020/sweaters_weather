@@ -1,14 +1,14 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    
-    User.create(user_params)
+    render json: UserSerializer(User.create(user_params))
   end
 
   private
 
   def user_params
-    params.permit(:email, :password).merge()
+    api_key = User.key_generator
+    params.permit(:email, :password).merge(api_key)
   end
 
 

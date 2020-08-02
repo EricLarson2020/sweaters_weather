@@ -1,3 +1,4 @@
+require 'secure_random'
 class User < ApplicationRecord
   validates_presence_of :email, :password
   validates :email, uniqueness: true
@@ -6,5 +7,8 @@ class User < ApplicationRecord
     has_secure_password
 
 
+    def key_generator
+      SecureRandom.hex
+    end
 
 end
