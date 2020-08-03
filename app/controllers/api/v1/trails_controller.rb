@@ -1,7 +1,9 @@
 class Api::V1::TrailsController < ApplicationController
 
   def index
-    TrailsSearch.new.find_trails(params[:location])
+    trail_info = TrailsSearch.new.find_trails(params[:location])
+    render json: TripPlannerSerializer.new(trail_info)
+
   end
 
 end

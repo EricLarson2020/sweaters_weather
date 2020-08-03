@@ -6,11 +6,13 @@ class TrailsSearch
 
     trails = HikingProjectService.new.find_trails(location_object.lat, location_object.lon)
 
-  trail_trips  = trails[:trails].each do |trail|
+    trail_trips = trails[:trails].map do |trail|
       TrailTrips.new(trail, location)
     end
 
-    TripPlanner.new(location, weather, trail_trips)
+
+    answer = TripPlanner.new(location, weather, trail_trips)
+    
 
 
   end
