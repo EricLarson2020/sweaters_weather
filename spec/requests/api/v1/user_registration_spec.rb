@@ -25,7 +25,7 @@ describe "User registration" do
       'password_confirmation': 'pasdworddsd'
     }
       post '/api/v1/users', params: registration_params
-      expect(response).not_to be_successful
+
       expect(response.status).to eq(400)
   end
 
@@ -42,7 +42,7 @@ describe "User registration" do
       'password_confirmation': 'pasdworddsd'
     }
       post '/api/v1/users', params: registration_params
-      expect(response).not_to be_successful
+
       expect(response.status).to eq(400)
   end
 end
