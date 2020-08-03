@@ -4,6 +4,7 @@ class OpenWeatherService
     response = conn.get('onecall') do |req|
       req.params['lat'] = lat
       req.params['lon'] = lon
+      req.params['units'] = 'imperial'
     end
     JSON.parse(response.body, symbolize_names: true)
   end
