@@ -11,4 +11,15 @@ describe "map quest service" do
     expect(coords[:results].first[:locations].first[:latLng].keys).to eq([:lat, :lng])
   end
 
+  it "can get mapquest directions" do
+    to = "Granby, Colorado"
+    from = "denver,co"
+
+    distance = MapquestService.new.get_distance(to, from)
+
+    expect(distance[:route]).to have_key(:distance)
+
+
+  end
+
 end

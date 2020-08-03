@@ -6,6 +6,6 @@ class MapquestSearch
   end
 
   def get_distance(to, from)
-    result = MapQuestService.new.get_distance(to, from)
+    result = MapquestService.new.get_distance(to, from)
   end
 end
