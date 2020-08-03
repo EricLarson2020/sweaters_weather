@@ -8,6 +8,8 @@ class MapquestService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+
+
   private
 
   def conn

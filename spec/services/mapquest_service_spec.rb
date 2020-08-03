@@ -7,7 +7,8 @@ describe "map quest service" do
 
 
     expect(coords).to be_a Hash
-    
+
     expect(coords[:results].first[:locations].first[:latLng].keys).to eq([:lat, :lng])
   end
+
 end
