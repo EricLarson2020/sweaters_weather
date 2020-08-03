@@ -1,15 +1,21 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    render json: UserSerializer(User.create(user_params))
+    user = User.new(user_params)
+    binding.pry
+    render json: UserSerializer.new(, status: 201)
   end
 
   private
 
   def user_params
-    api_key = User.key_generator
-    params.permit(:email, :password).merge(api_key)
+    generated_key = NumberGenerator.new.api_key_generator
+    api_key = {api_key: "#{generated_key}"}
+
+    params.permit(:email,:password).reverse_merge(api_key)
   end
 
 
 end
+
+#status :bad_request
