@@ -8,7 +8,8 @@ describe "background image endpoint" do
     expect(response).to be_successful
 
     image = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
 
+    expect(image[:data][:attributes]).to have_key(:location)
+    expect(image[:data][:attributes]).to have_key(:url)
   end
 end

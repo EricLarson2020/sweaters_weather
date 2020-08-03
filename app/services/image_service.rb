@@ -5,6 +5,7 @@ class ImageService
       req.params['query'] = location.split(",").first
 
     end
+
     JSON.parse(response.body, symbolize_names: true)
   end
 

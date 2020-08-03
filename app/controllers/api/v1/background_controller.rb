@@ -1,7 +1,9 @@
-class BackgroundController < ApplicationController
+class Api::V1::BackgroundController < ApplicationController
 
   def index
-    ImageSearch.new.find_image(params[:location])
+    image = ImageSearch.new.find_image(params[:location])
+
+    render json: DestinationSerializer.new(image)
   end
 
 end
