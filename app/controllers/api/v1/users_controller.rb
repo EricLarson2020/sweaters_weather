@@ -1,6 +1,8 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
+    # parsed_request = JSON.parse(request.body.read, symbolize_names: true))
+
     user = User.new(user_params)
 
     if user.save
