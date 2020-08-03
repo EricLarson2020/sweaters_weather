@@ -6,7 +6,7 @@ describe "directions endpoint" do
     from = "denver,co"
 
     distance = MapQuestService.new.get_distance(to, from)
-
+    binding.pry
     expect(distance[:route]).to have_key(:distance)
 
 
