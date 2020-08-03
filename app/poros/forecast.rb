@@ -1,5 +1,5 @@
 class Forecast
-   attr_reader :current, :hourly, :daily, :location
+   attr_reader :current, :hourly, :daily, :location, :id
   #:sunrise,
   #             :temp,
   #             :sunset,
@@ -18,12 +18,12 @@ class Forecast
   #             :daily,
   #             :id
 
-  def initialize(data)
-    @location = location.name
+  def initialize(data, name)
+    @location = name
     @current = current_forecast(data)
     @hourly = hourly_weather(data)
     @daily = daily_weather(data)
-    binding.pry
+    @id = nil
     # @datetime = data[:current][:dt]
     # @sunrise = data[:current][:sunrise]
     # @sunset = data[:current][:sunset]

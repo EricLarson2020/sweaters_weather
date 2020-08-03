@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "Unsplash Image Service" do
   it "return image from location param" do
-    location = 'denver'
+    location = 'denver,co'
     service = ImageService.new
     image = service.find_image(location)
 

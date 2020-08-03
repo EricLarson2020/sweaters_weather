@@ -7,7 +7,11 @@ describe "weather api" do
 
   expect(response).to be_successful
 
-   coords = JSON.parse(response.body)
-   binding.pry
+   coords = JSON.parse(response.body, symbolize_names: true)
+   
+   expect(coords[:data][:attributes]).to have_key(:location)
+   expect(coords[:data][:attributes]).to have_key(:current)
+   expect(coords[:data][:attributes]).to have_key(:daily)
+   expect(coords[:data][:attributes]).to have_key(:hourly)
  end
 end
