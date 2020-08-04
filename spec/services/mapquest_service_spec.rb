@@ -13,7 +13,7 @@ describe "map quest service" do
 
   it "returns travel time between locations" do
 
-    origin = "Denver,CO",
+    origin = "Denver,CO"
     destination = "Pueblo,CO"
 
     service = MapquestService.new
